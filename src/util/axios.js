@@ -4,11 +4,12 @@ import axios from 'axios'
 axios.defaults.baseURL = '/apis'
 axios.defaults.timeout = 5000
 axios.defaults.withCredentials = true // allow to carry Cross-domain cookie
-
+axios.defaults.headers.common = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+}
 // http request
 axios.interceptors.request.use(
   config => {
-    config.headers.Accept = 'application/json'
     // let token = Vue.localStorage.get('token')
     // if(token){
     //     config.headers.Token = token;
