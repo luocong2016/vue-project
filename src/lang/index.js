@@ -20,16 +20,14 @@ const messages = {
 }
 
 /* brow language */
-function getLang() {
+export function getLang() {
   return (window.navigator.language || window.navigator.browserLanguage).toLowerCase() === 'zh-cn' ? 'zh' : 'en';
 }
 
-const i18n = new VueI18n({
+export const i18n = new VueI18n({
   // set locale
   // options: en or zh
   locale: Cookies.get('language') || getLang(),
   // set locale messages
   messages
 })
-
-export default i18n
