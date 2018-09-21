@@ -1,17 +1,18 @@
 'use strict'
+require('babel-polyfill')
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: ['babel-polyfill', './src/main.js'] // Browser compatibility
   },
   output: {
     path: config.build.assetsRoot,
@@ -39,12 +40,21 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/icons')],
+        options: {
+          symbolId: 'icon-[name]'
+        }
+      },
       // {
       //   test: /\.scss$/, // main.js引入scss报错
       //   loaders: ['style', 'css', 'sass']
       // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        exclude: [resolve('src/icons')],
         loader: 'url-loader',
         options: {
           limit: 10000,

@@ -10,15 +10,16 @@ import 'normalize.css/normalize.css'
 import App from './App'
 import router from './router'
 import store from './store'
-import * as filters from './filters/index'
+import * as filters from './filters'
 
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
 
 import { i18n } from '@/lang'
+import './icons' // icon
 
 // promise Browser compatibility
-import 'es6-promise/auto'
+// import 'es6-promise/auto'
 
 /** global API */
 /* 安装 Vue.js 插件 */
