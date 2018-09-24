@@ -6,10 +6,10 @@ import { getToken } from '@/utils/auth'
 const service = axios.create({
   baseURL: '/apis',
   timeout: 5000,
-  withCredentials: true,
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
+  withCredentials: true
+  // headers: {
+  //   'Content-Type': 'application/x-www-form-urlencoded'
+  // }
 })
 
 // http request

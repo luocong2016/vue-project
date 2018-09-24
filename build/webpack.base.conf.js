@@ -1,5 +1,5 @@
 'use strict'
-require('babel-polyfill')
+// require('babel-polyfill')
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -12,7 +12,8 @@ function resolve(dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: ['babel-polyfill', './src/main.js'] // Browser compatibility
+    // app: ['babel-polyfill', './src/main.js'] // Browser compatibility
+    app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -37,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
@@ -54,7 +55,7 @@ module.exports = {
       // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        exclude: [resolve('src/icons')],
+        exclude: [resolve('src/icons')], // svg
         loader: 'url-loader',
         options: {
           limit: 10000,

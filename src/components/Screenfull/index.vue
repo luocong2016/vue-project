@@ -29,6 +29,7 @@
 
 <script>
 import screenfull from "screenfull";
+import { getLang } from "@/lang";
 
 export default {
   name: "Screenfull",
@@ -55,8 +56,11 @@ export default {
     click() {
       if (!screenfull.enabled) {
         this.$message({
-          message: "you browser can not work",
-          type: "warning"
+          type: "warning",
+          message:
+            this.$store.getters.language === "zh"
+              ? "你的浏览器不支持该功能"
+              : "you browser can not work"
         });
         return false;
       }

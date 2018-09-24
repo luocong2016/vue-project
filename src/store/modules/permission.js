@@ -1,4 +1,7 @@
-import { asyncRouterMap, constantRouterMap } from '@/router'
+import { constantRouterMap, asyncRouterMap } from '@/router'
+
+console.log('constantRouterMap: ', constantRouterMap);
+console.log('asyncRouterMap: ', asyncRouterMap)
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配

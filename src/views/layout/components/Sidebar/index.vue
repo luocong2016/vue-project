@@ -18,6 +18,8 @@
 import { mapGetters } from "vuex";
 import SidebarItem from "./SidebarItem";
 
+console.log(require('@/router').asyncRouterMap)
+
 export default {
   components: { SidebarItem },
   computed: {
